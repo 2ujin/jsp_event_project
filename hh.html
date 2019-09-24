@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+
+		<meta charset="UTF-8">
+
+		<title>rock-paper-scissors</title>
+
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+		<script>
+
+		///// 가위 0 바위 1 보 2
+
+
+
+			function computerChoice(){
+
+				var computerChoice = Math.floor(Math.random()*3)
+
+				return computerChoice;
+
+			}
+
+
+
+			function yourChoice(){
+
+				var yourChoice = $('#inputYourChoice').val();
+
+
+
+				if(yourChoice=='가위')
+
+					return 0;
+
+				else if(yourChoice=='바위')
+
+					return 1;
+
+				else if(yourChoice=='보')
+
+					return 2;
+
+				else
+
+					alert('가위, 바위, 보 셋중 하나를 입력하시오\n다시 입력하시오')
+
+
+
+			}
+
+
+
+			function checkwhowin(user, com){
+
+				//0 승리 1 패배 2 드로우
+
+				var userResult = 0;
+
+				if((user==1&&com==0) || (user==2&&com==1) || (user==0&&com==2))
+
+					return 0;
+
+				else if((user==2&&com==0) || (user==0&&com==1) || (user==1&&com==2))
+
+					return 1;
+
+				else if((user==0&&com==0) || (user==1&&com==1) || (user==2&&com==2))
+
+					return 2;
+
+				else
+
+					alert('승패 오류');
+
+
+
+			}
+
+
+
+			function showimage(user, rusult, com){
+
+
+
+				if(user==0)
+
+					$('#yourChoiceImg').attr('src', 'http://www.paulkorea.co.kr/shopimages/paulkorea/0110000000042.jpg?1528075901');
+
+				else if(user==1)
+
+					$('#yourChoiceImg').attr('src', 'http://plug.hani.co.kr/files/attach/images/2840355/047/987/002/%EC%A3%BC%EB%A8%B9%201.jpg');
+
+				else if(user==2)
+
+					$('#yourChoiceImg').attr('src', 'http://mblogthumb2.phinf.naver.net/20130403_97/rkakrehd_1364967617850rqq3V_JPEG/%BC%D5%C0%C7%B8%F0%BE%E77.jpg?type=w2');
+
+
+
+				if(rusult==0)
+
+					$('#resultImg').attr('src', 'https://ichef.bbci.co.uk/news/640/media/images/71346000/jpg/_71346325_win.jpg');
+
+				else if(rusult==1)
+
+					$('#resultImg').attr('src', 'data:image/png;base64,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');
+
+				else if(rusult==2)
+
+					$('#resultImg').attr('src', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbiuUBuOxk7pUrtR8QhdhXw1l5K2cp9Df7CfBMUBmdlW2hHInN');
+
+
+
+				if(com==0)
+
+					$('#computerChoiceImg').attr('src', 'http://www.paulkorea.co.kr/shopimages/paulkorea/0110000000042.jpg?1528075901');
+
+				else if(com==1)
+
+					$('#computerChoiceImg').attr('src', 'http://plug.hani.co.kr/files/attach/images/2840355/047/987/002/%EC%A3%BC%EB%A8%B9%201.jpg');
+
+				else if(com==2)
+
+					$('#computerChoiceImg').attr('src', 'http://mblogthumb2.phinf.naver.net/20130403_97/rkakrehd_1364967617850rqq3V_JPEG/%BC%D5%C0%C7%B8%F0%BE%E77.jpg?type=w2');
+
+
+
+			}
+
+
+
+			function startgame(){
+
+				var comChoice = computerChoice();
+
+				var youChoice = yourChoice();
+
+				var result = checkwhowin(youChoice, comChoice);
+
+				showimage(youChoice, result, comChoice);
+
+			}
+
+
+
+
+
+
+
+
+
+		</script>
+
+	</head>
+
+
+
+	<body>
+
+		<form>
+
+			<input type="text"  value="가위 바위 보 입력하시오." id = "inputYourChoice" name=""/>
+
+			<input type="button"  value="도전" onclick="startgame()"/>
+
+		</form>
+
+		<img src = "image/dontknow.PNG" id = "yourChoiceImg"/>
+
+		<img src = "image/dontknow.PNG" id = "resultImg"/>
+
+		<img src = "image/dontknow.PNG" id = "computerChoiceImg"/>
+
+	</body>
+
+</html>
