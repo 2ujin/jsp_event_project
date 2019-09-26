@@ -14,16 +14,15 @@
      background-color: #F0F0F0;
      text-align: center;
      margin-top: 90px;
+     margin: 0 auto;
    }
   .login{
     width: 400px;
     height: 300px;
     background-color: white;
     border-radius: 80px;
-    position:absolute;
-    left: 438px;
-    top: 170px;
     text-align: center;
+    margin: 0 auto;
   }
   .btn1{
    background-color: orange;
@@ -52,15 +51,18 @@
     margin-top: 15px;
     margin-bottom: 10px;
   }
+  .out{
+  	margin-top: 250px;
+  }
  </style>
  <body>
    <div class="out">
     <img src="https://www.jejuair.net/jejuair/images/simp_member/hlogo.png" class="face"><br><br>
-     <form class="login" method="get" action="login_check.php">
+     <form class="login" method="get" action="login_check.jsp">
        <br><br><br><input type="text" class="input" placeholder=" 아이디" name="id"><br>
        <input type="text" class="input" placeholder=" 비밀번호" name="pw"><br><br>
        <input type="submit" class="btn1" value="Login"><br>
-       <code><a href="http://naver.com">아이디/비밀번호 찾기</a>     |     <a href="signup.php">회원가입</a> <code>
+       <code><a href="http://naver.com">아이디/비밀번호 찾기</a>     |     <a href="signup.jsp">회원가입</a> <code>
      </form>
    </div>
 </body>

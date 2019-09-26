@@ -8,9 +8,8 @@
 </head>
  <script>
 function send(){
-  document.form.action='main.php';
   document.form.submit();
-  document.form.action='signup_db.php';
+  document.form.action='signup_db.jsp';
 }
 </script>
  <style>
@@ -60,18 +59,21 @@ function send(){
   h4{
     margin-top: 20px;
   }
+  .out{s
+  	margin-top: 150px;
+  }
  </style>
  <body>
    <div class="out">
      <img src="https://www.jejuair.net/jejuair/images/simp_member/hlogo.png" class="face"><br><br>
-     <form method="get" name="form" class="login" action="#">
+     <form class="login" method="get" action="signup_db.jsp">
        <br><br><br><h4>회 원 가 입</h4>
-       <input type="text" class="input" placeholder=" 아이디" name="id"><br>
-       <input type="text" class="input" placeholder=" 비밀번호" name="pw"><br>
-       <input type="text" class="input" placeholder=" 이름" name="id"><br>
-       <input type="text" class="input" placeholder=" 이메일" name="pw"><br>
-       <input type="text" class="input" placeholder=" 전화번호" name="id"><br><br>
-       <input type="submit" class="btn1" value="회원가입" onclick="send()"><br>
+       <input type="text" class="input" placeholder=" 아이디" name="id" id="id"><br>
+       <input type="text" class="input" placeholder=" 비밀번호" name="pw" id="pw"><br>
+       <input type="text" class="input" placeholder=" 이름" name="name" id="name"><br>
+       <input type="text" class="input" placeholder=" 이메일" name="email" id="email"><br>
+       <input type="text" class="input" placeholder=" 전화번호" name="phone" id="phone"><br><br>
+       <input type="submit" class="btn1" value="회원가입" ><br>
      </form>
    </div>
 </body>

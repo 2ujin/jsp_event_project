@@ -74,12 +74,12 @@
           <div id="body">
           <h2>진행중인 이벤트</h2>
           <hr>
-          <div class="event-top">
-            <img src="img/hh.png" width="924" usemap="#Map1" alt="" border="0">
-            <map name="Map1">
-              <area shape="rect" coords="172,1031,752,1111" href="event_go.jsp" alt="버튼_예매하기 ">
-            </map>
-          </div>
+		  <div class="event-top" style="font-size:0; line-height:0;">
+			<img src="img/event.png" width="924" usemap="#Map1" border="0">
+			<map name="Map1">
+			<area shape="rect" coords="172,1031,752,1111" href="event_go.jsp" alt="버튼_예매하기 ">
+			</map>
+		  </div>
           </div>
         </body>
 </html>
